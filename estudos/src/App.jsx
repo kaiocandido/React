@@ -1,27 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import { v4 } from 'uuid'
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar Programação",
-      description: "estudar programação para melhorar para vaga pleno",
-      isCompleted: false
-    }, {
-      id: 2,
-      title: "Estudar PHP",
-      description: "estudar programação para melhorar para vaga pleno",
-      isCompleted: false
-    }, {
-      id: 3,
-      title: "Estudar Logica",
-      description: "estudar programação para melhorar para vaga pleno",
-      isCompleted: false
+  const [tasks, setTasks] = useState( JSON.parse(localStorage.getItem("tasks")) || []);
+
+  /* API CONEXÃO
+  useEffect( () => {
+    //CHAMADOS API COM AXIOS OU FETCH
+    async function fetchTasks() {
+          const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10',
+      {
+        method: 'GET'
+      }
+    );
+    const data = await response.json()
+    console.log(data)
+
+    setTasks(data)
     }
-  ]);
+
+    fetchTasks()
+
+    // ARMAZENAR NO STATE
+
+    
+
+  }, []) */
 
   function OnTaskClick(taskId) {
     const newTasks = tasks.map(task => {
@@ -43,7 +50,7 @@ function App() {
 
   function onAddTaskSubmite(title, description)  {
     const newTask = {
-      id: tasks.length + 1,
+      id: v4(),
       title: title,
       description: description,
       isCompleted: false,
@@ -53,10 +60,14 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
+  
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
-        <h1 className= "text-3xl  text-slate-100 text-center font-bold">Gerenciador De Tarefas</h1>
+        <h1 className= "text-3xl  text-slate-100 text-center font-bold mb-8">Gerenciador De Tarefas</h1>
         <AddTask onAddTaskSubmite={onAddTaskSubmite} />
         <Tasks tasks={tasks} OnTaskClick={OnTaskClick} onTaskDelete={onTaskDelete}  />
         
