@@ -33,7 +33,7 @@ src/
 
 ##Como executar o projeto
 1. Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/kaiocandido/React/edit/main/estudos/README.md)
 2. Acesse a pasta do projeto
 cd seu-repositorio
 3. Instale as dependências
