@@ -1,16 +1,60 @@
-# React + Vite
+# Gerenciador de Tarefas com React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em React para gerenciamento simples de tarefas. O projeto permite adicionar tarefas, remover tarefas existentes e visualizar os detalhes de cada tarefa.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Adicionar novas tarefas
+- Remover tarefas cadastradas
+- Visualizar detalhes da tarefa
+- Listar todas as tarefas
+- Navegação entre páginas
+- Interface simples e responsiva
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- React Router DOM
+- Tailwind CSS
+- Lucide React
 
-## Expanding the ESLint configuration
+## Estrutura do projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+src/
+├── components/
+│   ├── AddTask.jsx
+│   ├── Tasks.jsx
+│   └── TaskDetails.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+
+##Como executar o projeto
+1. Clone o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
+2. Acesse a pasta do projeto
+cd seu-repositorio
+3. Instale as dependências
+npm install
+4. Execute a aplicação
+npm run dev
+
+Após executar o comando, acesse no navegador:
+
+http://localhost:5173
+
+##Como funciona a aplicação
+
+A aplicação possui uma tela principal onde são exibidas todas as tarefas cadastradas.
+
+Cada tarefa possui um título e uma descrição. O usuário pode adicionar novas tarefas, remover tarefas existentes e acessar uma página com os detalhes completos de cada tarefa.
+
+## Exemplo de objeto de tarefa
+{
+  id: 1,
+  title: "Estudar React",
+  description: "Praticar componentes, props, estados e rotas",
+  isCompleted: false
+}
